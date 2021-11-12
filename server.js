@@ -22,7 +22,7 @@ app.use(express.static("db"));
 
 
 //The public folder holds our base files i.e css, html etc, these are known as static files and are not likely to change
-//app.use is our firststep in connecting to a "middleware" - middleware is another layer in which our requests is routed
+//app.use is our firststep in connecting to a "middleware" - middleware is another layer in which our requests are routed
 
 app.use(express.static('public'));
 // Built-in express method to call the next middleware in the stack.
@@ -50,7 +50,7 @@ app.get('/paths', (req, res) =>
 
 //app.listen is a method that accepts two arguments, 1st argument is to invoke our server, the 2nd argument is a callback function.
 app.listen(PORT, () =>
-  console.log(`Example app listening at http://localhost:${PORT}`)
+  console.log(`server connected successfully http://localhost:${PORT}`)
 );
 
 
