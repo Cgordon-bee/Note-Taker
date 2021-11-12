@@ -4,6 +4,9 @@ const fs = require('fs');
 const util = require('util');
 
 const notes = require('./db/db.json');
+const apiRoutes = require('./routes/apiRoutes');
+const htmlRoutes = require('./routes/htmlRoutes');
+
 
 
 
@@ -19,6 +22,8 @@ const PORT = process.env.PORT || 30001;
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(express.static("db"));
+app.use('./api', apiRoutes);
+app.use('/', htmlRoutes);
 
 
 //The public folder holds our base files i.e css, html etc, these are known as static files and are not likely to change
