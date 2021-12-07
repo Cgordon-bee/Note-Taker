@@ -1,10 +1,16 @@
 const router = require('express').Router();
+const fs = require('fs');
+const express = require ("express");
+const util = require ("util");
+const { Router } = require('express');
 
-const store = require('../db/store');
 
-// requesting the existing notes
+// const uuid = require ("../helpers/uuid");
+// const store = require('../db/store');
 
-router.get('/notes', (req, res) => {
+// // requesting the existing notes
+
+router.get('/api/notes', (req, res) => {
     store
         .getNotes()
         .then(notes => {
@@ -17,7 +23,7 @@ router.get('/notes', (req, res) => {
 
 // posting note function route 
 
-router.post('./notes', (req, res) => {
+router.post('/api/notes', (req, res) => {
     console.log(req.body)
     store
         .addNote(req.body)
@@ -32,7 +38,7 @@ router.post('./notes', (req, res) => {
 
 // delete note function route
 
-router.delete('./notes/:id', (req, res) => {
+router.delete('/api/notes/:id', (req, res) => {
     store
         .removeNote(req.params.id)
         .then(() => res.json({ ok: true }))
